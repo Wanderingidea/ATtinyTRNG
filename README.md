@@ -60,8 +60,8 @@ in crontab @reboot:<br>
 
 /etc/modules-load.d/modules.conf: cdc-acm
 
-/etc/conf.d/rngd: RNGD_OPTS="-r /dev/ttyACM0 -x tpm -x nist -x qrypt -x jitter -x rtlsdr -x pkcs11
-systemctl start rngd && systemctl enable rngd
+/etc/conf.d/rngd: `RNGD_OPTS="-r /dev/ttyACM0 -x tpm -x nist -x qrypt -x jitter -x rtlsdr -x pkcs11`<br>
+`systemctl start rngd && systemctl enable rngd`
 
 Sources:<br>
 https://github.com/Wanderingidea/Minimum-Entropy<br>
