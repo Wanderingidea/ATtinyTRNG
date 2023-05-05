@@ -1,5 +1,5 @@
 # ATtinyTRNG
-ATtinyTRNG - True Random Number Generator
+ATtinyTRNG - True Random Number Generator<br>
 Cor van Wandelen 4-2023
 
 ### Rationale:<br>
