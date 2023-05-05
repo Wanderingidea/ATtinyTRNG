@@ -2,87 +2,69 @@
 ATtinyTRNG - True Random Number Generator
 Cor van Wandelen 4-2023
 
-Rationale:
+Rationale:<br>
 A small generic True Random Number generator has been made by combining two random sources on a ATtiny85 board.
 
-Method:
+Method:<br>
 The xored stream of random bytes made from the 8 available ADCs on a ATtiny85 MCU are combined with the xored stream of
 random bytes made from CPU jitter.
 Both random sources are checked for failure: if one of them fails the MCU is put to sleep.
 A speed of appr. 96 B/s is achieved.
 
-Tests:
-The following tests have been done at room temperature (19..22 degrees Celcius) on a file of 19MB that has been created by
-cat /dev/ttyACM0 > test.bin:
-Me:
- minimum entropy: 1.00 bits per bit
+Tests:<br>
+The following tests have been done at room temperature (19..22 degrees Celcius) on a file of 19MB that has been created by<br>
+`cat /dev/ttyACM0 > test.bin:`<br>
+Me:<br>
+ minimum entropy: 1.00 bits per bit<br>
 
-Ent:
- Entropy = 1.000000 bits per bit.
+Ent:<br>
+ Entropy = 1.000000 bits per bit.<br>
+<br>
+ Optimum compression would reduce the size<br>
+ of this 204722968 bit file by 0 percent.<br>
+<br>
+ Chi square distribution for 204722968 samples is 0.28, and randomly<br>
+ would exceed this value 59.77 percent of the times.<br>
+<br>
+ Arithmetic mean value of data bits is 0.5000 (0.5 = random).<br>
+ Monte Carlo value for Pi is 3.141752955 (error 0.01 percent).<br>
+ Serial correlation coefficient is -0.000026 (totally uncorrelated = 0.0).<br>
+<br>
+Rngtest:<br>
+   rngtest 6.16<br>
+   Copyright (c) 2004 by Henrique de Moraes Holschuh<br>
+   This is free software; see the source for copying conditions.  There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A <br>
+<br>
+ rngtest: starting FIPS tests...<br>
+ rngtest: entropy source drained<br>
+ rngtest: bits received from input: 204722968<br>
+ rngtest: FIPS 140-2 successes: 10235<br>
+ rngtest: FIPS 140-2 failures: 1<br>
+ rngtest: FIPS 140-2(2001-10-10) Monobit: 0<br>
+ rngtest: FIPS 140-2(2001-10-10) Poker: 0<br>
+ rngtest: FIPS 140-2(2001-10-10) Runs: 0<br>
+ rngtest: FIPS 140-2(2001-10-10) Long run: 1<br>
+ rngtest: FIPS 140-2(2001-10-10) Continuous run: 0<br>
+ rngtest: input channel speed: (min=280.492; avg=4261.869; max=6357.829)Mibits/s<br>
+ rngtest: FIPS tests speed: (min=43.153; avg=113.487; max=123.854)Mibits/s<br>
+ rngtest: Program run time: 1768244 microseconds<br>
 
- Optimum compression would reduce the size
- of this 204722968 bit file by 0 percent.
-
- Chi square distribution for 204722968 samples is 0.28, and randomly
- would exceed this value 59.77 percent of the times.
-
- Arithmetic mean value of data bits is 0.5000 (0.5 = random).
- Monte Carlo value for Pi is 3.141752955 (error 0.01 percent).
- Serial correlation coefficient is -0.000026 (totally uncorrelated = 0.0).
-
-Rngtest:
- rngtest 6.16
- Copyright (c) 2004 by Henrique de Moraes Holschuh
- This is free software; see the source for copying conditions.  There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A 
-
- rngtest: starting FIPS tests...
- rngtest: entropy source drained
- rngtest: bits received from input: 204722968
- rngtest: FIPS 140-2 successes: 10235
- rngtest: FIPS 140-2 failures: 1
- rngtest: FIPS 140-2(2001-10-10) Monobit: 0
- rngtest: FIPS 140-2(2001-10-10) Poker: 0
- rngtest: FIPS 140-2(2001-10-10) Runs: 0
- rngtest: FIPS 140-2(2001-10-10) Long run: 1
- rngtest: FIPS 140-2(2001-10-10) Continuous run: 0
- rngtest: input channel speed: (min=280.492; avg=4261.869; max=6357.829)Mibits/s
- rngtest: FIPS tests speed: (min=43.153; avg=113.487; max=123.854)Mibits/s
- rngtest: Program run time: 1768244 microseconds
-
-Compile and upload ATtinyTRNG.ino with Arduino CLI:
-arduino-cli compile -e --fqbn digistump:avr:digispark-tiny ATtinyTRNG.ino
-arduino-cli upload -p /dev/ttyACM0 --fqbn digistump:avr:digispark-tiny ATtinyTRNG.ino
+Compile and upload ATtinyTRNG.ino with Arduino CLI:<br>
+`arduino-cli compile -e --fqbn digistump:avr:digispark-tiny ATtinyTRNG.ino`<br>
+`arduino-cli upload -p /dev/ttyACM0 --fqbn digistump:avr:digispark-tiny ATtinyTRNG.ino`<br>
 
 Practical implementation in Linux:
-in crontab @reboot:
-stty -F /dev/ttyACM0 -brkint -icrnl -imaxbel -opost -isig -icanon min 1 time 0
+in crontab @reboot:<br>
+`stty -F /dev/ttyACM0 -brkint -icrnl -imaxbel -opost -isig -icanon min 1 time 0`<br>
 
 /etc/modules-load.d/modules.conf: cdc-acm
 
 /etc/conf.d/rngd: RNGD_OPTS="-r /dev/ttyACM0 -x tpm -x nist -x qrypt -x jitter -x rtlsdr -x pkcs11
 systemctl start rngd && systemctl enable rngd
 
-License:
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
-Sources:
-https://github.com/Wanderingidea/Minimum-Entropy
-
-https://www.chronox.de/jent.html
-
-https://www.osti.gov/biblio/1825588
-
-https://blogs.oracle.com/linux/post/rngd1
-
+Sources:<br>
+https://github.com/Wanderingidea/Minimum-Entropy<br>
+https://www.chronox.de/jent.html<br>
+https://www.osti.gov/biblio/1825588<br>
+https://blogs.oracle.com/linux/post/rngd1<br>
 https://aliexpress.com/item/1005004213157718.html
