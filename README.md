@@ -12,7 +12,7 @@ Both random sources are checked for failure: if one of them fails the MCU is put
 A speed of appr. 96 B/s is achieved.
 
 Tests:<br>
-The following tests have been done at room temperature (19..22 degrees Celcius) on a file of 19MB that has been created by<br>
+The following tests have been done at room temperature (19..22 degrees Celcius) on a file of 24MB that has been created by<br>
 `cat /dev/ttyACM0 > test.bin`<br>
 
 Me:<br>
