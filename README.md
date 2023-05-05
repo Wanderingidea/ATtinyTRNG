@@ -7,13 +7,14 @@ A small generic True Random Number generator has been made by combining two rand
 
 Method:<br>
 The xored stream of random bytes made from the 8 available ADCs on a ATtiny85 MCU are combined with the xored stream of
-random bytes made from CPU jitter.
-Both random sources are checked for failure: if one of them fails the MCU is put to sleep.
+random bytes made from CPU jitter.<br>
+Both random sources are checked for failure: if one of them fails the MCU is put to sleep.<br>
 A speed of appr. 96 B/s is achieved.
 
 Tests:<br>
-The following tests have been done at room temperature (19..22 degrees Celcius) on a file of 19MB that has been created by 
-`cat /dev/ttyACM0 > test.bin:`<br>
+The following tests have been done at room temperature (19..22 degrees Celcius) on a file of 19MB that has been created by<br>
+`cat /dev/ttyACM0 > test.bin`<br>
+
 Me:<br>
  minimum entropy: 1.00 bits per bit<br>
 
@@ -53,7 +54,7 @@ Compile and upload ATtinyTRNG.ino with Arduino CLI:<br>
 `arduino-cli compile -e --fqbn digistump:avr:digispark-tiny ATtinyTRNG.ino`<br>
 `arduino-cli upload -p /dev/ttyACM0 --fqbn digistump:avr:digispark-tiny ATtinyTRNG.ino`<br>
 
-Practical implementation in Linux:
+Practical implementation in Linux:<br>
 in crontab @reboot:<br>
 `stty -F /dev/ttyACM0 -brkint -icrnl -imaxbel -opost -isig -icanon min 1 time 0`<br>
 
