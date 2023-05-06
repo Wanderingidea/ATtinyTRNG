@@ -18,6 +18,7 @@
  *
  * Tests:
  * The following tests have been done at room temperature (19..22 degrees Celcius) on a file of 24MB that has been created by
+ * stty -F /dev/ttyACM0 -brkint -icrnl -imaxbel -opost -isig -icanon min 1 time 0
  * cat /dev/ttyACM0 > test.bin:
  * Me:
     minimum entropy: 1.00 bits per bit
