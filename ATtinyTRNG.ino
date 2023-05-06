@@ -16,6 +16,11 @@
  * Both random sources are checked for failure: if one of them fails the MCU is put to sleep.
  * A speed of appr. 96 B/s is achieved.
  *
+ * Compile:
+ * Compile and upload ATtinyTRNG.ino to the ATtiny85 board using Arduino CLI:
+ * arduino-cli compile -e --fqbn digistump:avr:digispark-tiny ATtinyTRNG.ino
+ * arduino-cli upload -p /dev/ttyACM0 --fqbn digistump:avr:digispark-tiny ATtinyTRNG.ino
+ *
  * Tests:
  * The following tests have been done at room temperature (19..22 degrees Celcius) on a file of 24MB that has been created by
  * stty -F /dev/ttyACM0 -brkint -icrnl -imaxbel -opost -isig -icanon min 1 time 0
@@ -55,10 +60,6 @@
     rngtest: input channel speed: (min=280.492; avg=4261.869; max=6357.829)Mibits/s
     rngtest: FIPS tests speed: (min=43.153; avg=113.487; max=123.854)Mibits/s
     rngtest: Program run time: 1768244 microseconds
- *
- * Compile and upload ATtinyTRNG.ino with Arduino CLI:
- * arduino-cli compile -e --fqbn digistump:avr:digispark-tiny ATtinyTRNG.ino
- * arduino-cli upload -p /dev/ttyACM0 --fqbn digistump:avr:digispark-tiny ATtinyTRNG.ino
  *
  * Practical implementation in Linux:
  * in crontab @reboot:
