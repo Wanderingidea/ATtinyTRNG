@@ -123,8 +123,7 @@ void setup()
 }
 
 //timer0 interrupt code
-ISR(TIMER0_OVF_vect)
-{
+ISR(TIMER0_OVF_vect){
 	if (irqctr == BLDLY) { // 16/(1024/(639+1)) = 10 sec, 16/(1024/(63+1) = 1 sec, etc.
 		goblink = true;
 		irqctr = 0;
