@@ -11,7 +11,7 @@
  * A small generic True Random Number generator has been made by combining two random sources on a ATtiny85 board.
  *
  * Method:
- * The xored stream of random bytes made from the 8 available ADCs on a ATtiny85 MCU are combined with the xored stream of
+ * The xored stream of random bytes made from the 4 available ADCs on a ATtiny85 MCU are combined with the xored stream of
  * random bytes made from CPU jitter.
  * Both random sources are checked for failure: if one of them fails the MCU is put to sleep.
  * A speed of appr. 96 B/s is achieved.
