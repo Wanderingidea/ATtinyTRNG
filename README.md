@@ -4,7 +4,10 @@ Cor van Wandelen 4-2023<br>
 ![board](https://user-images.githubusercontent.com/42114791/236681679-c37b7d7e-ece2-4589-a5ea-2ed1f0db1bc8.jpg)
 
 ### Rationale:<br>
-A small generic True Random Number generator has been made by combining two random sources on a ATtiny85 board.
+A small generic True Random Number Generator has been made by combining two random sources on a ATtiny85 board.
+
+### Purpose:<br>
+This True Random Number Generator produces high quality non-deterministic random numbers. As an example, these numbers can be used to seed a high speed pseudo random number generator.
 
 ### Method:<br>
 The xored stream of random bytes made from the 4 available ADCs on a ATtiny85 MCU are combined with the xored stream of
