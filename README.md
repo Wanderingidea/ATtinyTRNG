@@ -1,6 +1,7 @@
 # ATtinyTRNG
 ATtinyTRNG - True Random Number Generator<br>
 Cor van Wandelen 4-2023
+![board](https://user-images.githubusercontent.com/42114791/236681534-6cbcdde1-d2a2-4768-b075-c8cf92fbb0f1.jpg)
 
 ### Rationale:<br>
 A small generic True Random Number generator has been made by combining two random sources on a ATtiny85 board.
