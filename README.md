@@ -70,7 +70,7 @@ in crontab @reboot:<br>
 `systemctl start rngd && systemctl enable rngd`
 
 ### Sources:<br>
-https://en.wikipedia.org/wiki/Hardware_random_number_generator
+https://en.wikipedia.org/wiki/Hardware_random_number_generator<br>
 https://www.chronox.de/jent.html<br>
 https://www.osti.gov/biblio/1825588<br>
 https://blogs.oracle.com/linux/post/rngd1<br>
