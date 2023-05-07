@@ -110,9 +110,9 @@ void setup()
 
 	pinMode(1, OUTPUT);
 
-    while (!SerialUSB);
+	while (!SerialUSB);
 
-    SerialUSB.begin();
+	SerialUSB.begin();
 
 	SerialUSB.println(F("ATtinyTRNG v.4-2023"));
 
@@ -141,26 +141,26 @@ static inline uint8_t ADCnoise8X(void)
 {
 	static uint8_t sc, stuckctr, m, ADCctr;
 	uint8_t r;
-    uint32_t ar;
-    static uint32_t oar = analogRead(0);
+    	uint32_t ar;
+    	static uint32_t oar = analogRead(0);
 	ADCctr++;
-    ADCctr %= 5;
+    	ADCctr %= 5;
 	for (uint8_t n = 0; n < 8; n++) {
-        ar = analogRead(ADCctr);
-        if (ar == oar) {
-            sc++;
-            if (sc > 20) {
-                stuckctr++;
-                if (stuckctr > 6) {
-                    digitalWrite(1, HIGH);
-                    set_sleep_mode(SLEEP_MODE_PWR_DOWN);
-                }
-            }
-        } else
-            sc = 0;
-        oar = ar;
+        	ar = analogRead(ADCctr);
+        	if (ar == oar) {
+            		sc++;
+            		if (sc > 20) {
+                		stuckctr++;
+                		if (stuckctr > 6) {
+                    			digitalWrite(1, HIGH);
+                    			set_sleep_mode(SLEEP_MODE_PWR_DOWN);
+                		}
+            		}
+        	} else
+         		sc = 0;
+        	oar = ar;
 		r |= (ar & 0b00000001) << n;
-    }
+	}
 	m ^= r; // whitening
 	return m;
 }
@@ -169,28 +169,28 @@ static inline uint8_t ADCnoise8X(void)
 static inline uint8_t jitter8X(void)
 {
 	static uint8_t m, rs, sc, stuckctr;
-    uint8_t t0, dt, r = 0;
+    	uint8_t t0, dt, r = 0;
 	for (uint8_t n = 0; n < 8; n++) {
-        t0 = TCNT0;
-        for (uint32_t n = 0; n < 20; n++) { // Xorshift32 is not used further
+        	t0 = TCNT0;
+        	for (uint32_t n = 0; n < 20; n++) { // Xorshift32 is not used further
 			m ^= m << 13;
 			m ^= m >> 17;
 			m ^= m << 5;
 		}
-        dt = TCNT0 - t0; // overflow, unsigned - it does not matter
-        if (dt == 0) {
-            sc++;
-            if (sc > 3) {
-                stuckctr++;
-                if (stuckctr > 6) {
-                    digitalWrite(1, HIGH);
-                    set_sleep_mode(SLEEP_MODE_PWR_DOWN);
-                }
-            }
-        } else
-            sc = 0;
+        	dt = TCNT0 - t0; // overflow, unsigned - it does not matter
+        	if (dt == 0) {
+            		sc++;
+            		if (sc > 3) {
+                		stuckctr++;
+                		if (stuckctr > 6) {
+                    			digitalWrite(1, HIGH);
+                    			set_sleep_mode(SLEEP_MODE_PWR_DOWN);
+                		}
+            		}
+        	} else
+            		sc = 0;
 		r |= (dt & 0b00000001) << n;
-    }
+    	}
 	rs ^= r; // whitening
 	return rs;
 }
@@ -212,13 +212,13 @@ void loop()
 	if (goblink) {
 		blink();
 		goblink = false;
-        ADCnoise8X();
-        jitter8X();
-    }
+        	ADCnoise8X();
+        	jitter8X();
+    	}
 
 	out = jitter8X() ^ ADCnoise8X();
 
 	SerialUSB.write(out);
 
-    SerialUSB.task();
+    	SerialUSB.task();
 }
