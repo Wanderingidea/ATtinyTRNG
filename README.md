@@ -41,7 +41,7 @@ The following tests have been done at room temperature (19..22 degrees Celcius) 
 **Rngtest:**<br>
    rngtest 6.16<br>
    Copyright (c) 2004 by Henrique de Moraes Holschuh<br>
-   This is free software; see the source for copying conditions.  There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A <br>
+   This is free software; see the source for copying conditions.  There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.<br>
 <br>
  rngtest: starting FIPS tests...<br>
  rngtest: entropy source drained<br>
