@@ -12,7 +12,7 @@ This True Random Number Generator produces high quality non-deterministic random
 ### Method:<br>
 The xored stream of random bytes made from the 4 available ADCs on a ATtiny85 MCU are combined with the xored stream of
 random bytes made from CPU jitter.<br>
-Both random sources are checked for failure: if one of them fails the MCU is put to sleep.<br>
+Both random sources are checked for failure: if one of them fails the MCU is put to sleep. Every 5 seconds a activity led blinks.<br>
 A speed of appr. 96 B/s is achieved.
 
 ### Compile:<br>
