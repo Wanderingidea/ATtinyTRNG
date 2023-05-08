@@ -7,7 +7,7 @@ Cor van Wandelen 4-2023<br>
 A small generic True Random Number Generator has been made by combining two random sources on a ATtiny85 board.
 
 ### Purpose:<br>
-This True Random Number Generator produces high quality non-deterministic random numbers. As an example, these numbers can be used to seed a high speed (deterministic) pseudo random number generator.
+This True Random Number Generator produces high quality non-deterministic random numbers. As an example, these numbers can be used to seed a fast (deterministic) pseudo random number generator.
 
 ### Method:<br>
 The xored stream of random bytes made from the 4 available ADCs on a ATtiny85 MCU are combined with the xored stream of
