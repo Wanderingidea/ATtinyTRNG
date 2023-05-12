@@ -140,7 +140,7 @@ ISR(TIMER0_OVF_vect){
 static inline uint8_t ADCnoise8X(void)
 {
 	static uint8_t sc, stuckctr, m, ADCctr;
-	uint8_t r;
+	uint8_t r = 0;
     	uint32_t ar;
     	static uint32_t oar = analogRead(0);
 	ADCctr++;
