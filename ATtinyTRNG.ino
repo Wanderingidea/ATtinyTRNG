@@ -27,7 +27,7 @@
  * cat /dev/ttyACM0 > test.bin:
  *
  * Me:
-    minimum entropy: 1.00 bits per bit
+    minimum entropy: 0.99994680 bits per bit
  *
  * Ent:
     Entropy = 1.000000 bits per bit.
