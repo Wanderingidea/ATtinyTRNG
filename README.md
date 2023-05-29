@@ -25,7 +25,7 @@ The following tests have been done at room temperature (19..22 degrees Celcius) 
 `cat /dev/ttyACM0 > test.bin`<br>
 
 **Me:**<br>
- minimum entropy: 1.00 bits per bit<br>
+ minimum entropy: 0.99994680 bits per bit<br>
 
 **Ent:**<br>
  Entropy = 1.000000 bits per bit.<br>
