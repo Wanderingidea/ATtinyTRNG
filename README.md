@@ -9,9 +9,9 @@ A small, cheap generic True Random Number Generator has been made by combining t
 This True Random Number Generator produces high quality non-deterministic random numbers. As an example, these numbers can be used to seed a fast (deterministic) pseudo random number generator.
 
 ### Method:<br>
-The xored stream of random bytes made from the 4 available ADCs on a ATtiny85 MCU are used to seed a Middle Square Weyl Sequence prng which in turn is used to generate CPU jitter.<br>
+Random bytes made from the 4 available ADCs on a ATtiny85 MCU are used to seed a Middle Square Weyl Sequence prng which in turn is used to generate CPU jitter.<br>
 The output of CPU jitter is then combined with the output of the Middle Square Weyl Sequence prng.
-Both random sources are checked for failure: if one of them fails the MCU is put to sleep. Every 5 seconds a activity led blinks.<br>
+Both true random sources are checked for failure: if one of them fails the MCU is put to sleep. Every 5 seconds a activity led blinks.<br>
 A speed of appr. 50 B/s is achieved.
 
 ### Compile:<br>
@@ -20,7 +20,7 @@ A speed of appr. 50 B/s is achieved.
 `arduino-cli upload -p /dev/ttyACM0 --fqbn digistump:avr:digispark-tiny ATtinyTRNG.ino`<br>
 
 ### Tests:<br>
-The following tests have been done at room temperature (19..22 degrees Celcius) on a file of 24MB that has been created by<br>
+The following tests have been done at room temperature (19..22 degrees Celcius) on a file of 2.3MB that has been created by<br>
 `stty -F /dev/ttyACM0 -brkint -icrnl -imaxbel -opost -isig -icanon min 1 time 0`<br> 
 `cat /dev/ttyACM0 > test.bin`<br>
 
@@ -59,6 +59,10 @@ rngtest: input channel speed: (min=1.164; avg=4.311; max=6.209)Gibits/s<br>
 rngtest: FIPS tests speed: (min=20.226; avg=117.844; max=123.854)Mibits/s<br>
 rngtest: Program run time: 158105 microseconds<br>
 <br>
+**NIST SP800-22:**<br>
+
+
+
 **Practical implementation in Linux:**<br>
 in crontab @reboot:<br>
 `stty -F /dev/ttyACM0 -brkint -icrnl -imaxbel -opost -isig -icanon min 1 time 0`<br>
