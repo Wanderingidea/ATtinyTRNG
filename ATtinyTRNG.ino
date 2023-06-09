@@ -95,7 +95,7 @@ static inline uint8_t jitter8X(void)
 	uint8_t r = 0;
 	uint32_t t0, dt;
 	for (uint8_t n = 0; n < 8; n++) {
-        t0 = micros();
+		t0 = micros();
 		for (uint32_t n = 0; n < 10; n++) {
 			//Middle Square Weyl Sequence prng
 			//http://export.arxiv.org/pdf/1704.00358
@@ -119,8 +119,8 @@ static inline uint8_t jitter8X(void)
 		}
 		r |= (dt & 0b00000001) << n;
 	}
-    rs ^= r;
-    return rs ^ (uint8_t) x;
+	rs ^= r;
+	return rs ^ (uint8_t)x;
 }
 
 //enable the original compiler settings
