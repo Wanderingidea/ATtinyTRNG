@@ -1,6 +1,6 @@
 # ATtinyTRNG
 ATtinyTRNG - True Random Number Generator<br>
-Cor van Wandelen 4-2023<br>
+Cor van Wandelen 6-2023<br>
 ![board](https://user-images.githubusercontent.com/42114791/236681679-c37b7d7e-ece2-4589-a5ea-2ed1f0db1bc8.jpg)
 
 A small, cheap generic True Random Number Generator has been made by combining two random sources on a ATtiny85 board.
@@ -84,9 +84,10 @@ random_excursion_variant_test            0.03714850560062697 PASS
 in crontab @reboot:<br>
 `stty -F /dev/ttyACM0 -brkint -icrnl -imaxbel -opost -isig -icanon min 1 time 0`<br>
 
-/etc/modules-load.d/modules.conf: cdc-acm
+/etc/modules-load.d/modules.conf:<br> 
+`cdc-acm`
 
-/etc/conf.d/rngd: `RNGD_OPTS="-r /dev/ttyACM0 -x tpm -x nist -x qrypt -x jitter -x rtlsdr -x pkcs11`<br>
+/etc/conf.d/rngd:<br> `RNGD_OPTS="-r /dev/ttyACM0 -x tpm -x nist -x qrypt -x jitter -x rtlsdr -x pkcs11`<br>
 `systemctl start rngd && systemctl enable rngd`
 
 ### Sources:<br>
