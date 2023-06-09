@@ -41,24 +41,24 @@ Monte Carlo value for Pi is 3.141625050 (error 0.00 percent).
 Serial correlation coefficient is -0.000063 (totally uncorrelated = 0.0).
 <br>
 **Rngtest:**<br>
-rngtest 6.16
-Copyright (c) 2004 by Henrique de Moraes Holschuh
-This is free software; see the source for copying conditions.  There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+rngtest 6.16<br>
+Copyright (c) 2004 by Henrique de Moraes Holschuh<br>
+This is free software; see the source for copying conditions.  There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.<br>
 <br>
-rngtest: starting FIPS tests...
-rngtest: entropy source drained
-rngtest: bits received from input: 19011552
-rngtest: FIPS 140-2 successes: 949
-rngtest: FIPS 140-2 failures: 1
-rngtest: FIPS 140-2(2001-10-10) Monobit: 0
-rngtest: FIPS 140-2(2001-10-10) Poker: 0
-rngtest: FIPS 140-2(2001-10-10) Runs: 0
-rngtest: FIPS 140-2(2001-10-10) Long run: 1
-rngtest: FIPS 140-2(2001-10-10) Continuous run: 0
-rngtest: input channel speed: (min=1.164; avg=4.311; max=6.209)Gibits/s
-rngtest: FIPS tests speed: (min=20.226; avg=117.844; max=123.854)Mibits/s
-rngtest: Program run time: 158105 microseconds
-
+rngtest: starting FIPS tests...<br>
+rngtest: entropy source drained<br>
+rngtest: bits received from input: 19011552<br>
+rngtest: FIPS 140-2 successes: 949<br>
+rngtest: FIPS 140-2 failures: 1<br>
+rngtest: FIPS 140-2(2001-10-10) Monobit: 0<br>
+rngtest: FIPS 140-2(2001-10-10) Poker: 0<br>
+rngtest: FIPS 140-2(2001-10-10) Runs: 0<br>
+rngtest: FIPS 140-2(2001-10-10) Long run: 1<br>
+rngtest: FIPS 140-2(2001-10-10) Continuous run: 0<br>
+rngtest: input channel speed: (min=1.164; avg=4.311; max=6.209)Gibits/s<br>
+rngtest: FIPS tests speed: (min=20.226; avg=117.844; max=123.854)Mibits/s<br>
+rngtest: Program run time: 158105 microseconds<br>
+<br>
 **Practical implementation in Linux:**<br>
 in crontab @reboot:<br>
 `stty -F /dev/ttyACM0 -brkint -icrnl -imaxbel -opost -isig -icanon min 1 time 0`<br>
