@@ -9,10 +9,10 @@ A small, cheap generic True Random Number Generator has been made by combining t
 This True Random Number Generator produces high quality non-deterministic random numbers. As an example, these numbers can be used to seed a fast (deterministic) pseudo random number generator.
 
 ### Method:<br>
-The xored stream of random bytes made from the 4 available ADCs on a ATtiny85 MCU are combined with the xored stream of
-random bytes made from CPU jitter.<br>
+The xored stream of random bytes made from the 4 available ADCs on a ATtiny85 MCU are used to seed a Middle Square Weyl Sequence prng which in turn is used to generate CPU jitter.<br>
+The output of CPU jitter is then combined with the output of the Middle Square Weyl Sequence prng.
 Both random sources are checked for failure: if one of them fails the MCU is put to sleep. Every 5 seconds a activity led blinks.<br>
-A speed of appr. 96 B/s is achieved.
+A speed of appr. 50 B/s is achieved.
 
 ### Compile:<br>
 **Compile and upload ATtinyTRNG.ino to the ATtiny85 board using Arduino CLI:**<br>
@@ -25,39 +25,39 @@ The following tests have been done at room temperature (19..22 degrees Celcius) 
 `cat /dev/ttyACM0 > test.bin`<br>
 
 **Me:**<br>
- minimum entropy: 0.99994680 bits per bit<br>
+ minimum entropy: 0.99980954 bits per bit<br>
 
 **Ent:**<br>
- Entropy = 1.000000 bits per bit.<br>
+Entropy = 1.000000 bits per bit.
 <br>
- Optimum compression would reduce the size<br>
- of this 204722968 bit file by 0 percent.<br>
+Optimum compression would reduce the size
+of this 19011552 bit file by 0 percent.
 <br>
- Chi square distribution for 204722968 samples is 0.28, and randomly<br>
- would exceed this value 59.77 percent of the times.<br>
+Chi square distribution for 19011552 samples is 0.33, and randomly
+would exceed this value 56.48 percent of the times.
 <br>
- Arithmetic mean value of data bits is 0.5000 (0.5 = random).<br>
- Monte Carlo value for Pi is 3.141752955 (error 0.01 percent).<br>
- Serial correlation coefficient is -0.000026 (totally uncorrelated = 0.0).<br>
+Arithmetic mean value of data bits is 0.4999 (0.5 = random).
+Monte Carlo value for Pi is 3.141625050 (error 0.00 percent).
+Serial correlation coefficient is -0.000063 (totally uncorrelated = 0.0).
 <br>
 **Rngtest:**<br>
-   rngtest 6.16<br>
-   Copyright (c) 2004 by Henrique de Moraes Holschuh<br>
-   This is free software; see the source for copying conditions.  There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.<br>
+rngtest 6.16
+Copyright (c) 2004 by Henrique de Moraes Holschuh
+This is free software; see the source for copying conditions.  There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 <br>
- rngtest: starting FIPS tests...<br>
- rngtest: entropy source drained<br>
- rngtest: bits received from input: 204722968<br>
- rngtest: FIPS 140-2 successes: 10235<br>
- rngtest: FIPS 140-2 failures: 1<br>
- rngtest: FIPS 140-2(2001-10-10) Monobit: 0<br>
- rngtest: FIPS 140-2(2001-10-10) Poker: 0<br>
- rngtest: FIPS 140-2(2001-10-10) Runs: 0<br>
- rngtest: FIPS 140-2(2001-10-10) Long run: 1<br>
- rngtest: FIPS 140-2(2001-10-10) Continuous run: 0<br>
- rngtest: input channel speed: (min=280.492; avg=4261.869; max=6357.829)Mibits/s<br>
- rngtest: FIPS tests speed: (min=43.153; avg=113.487; max=123.854)Mibits/s<br>
- rngtest: Program run time: 1768244 microseconds<br>
+rngtest: starting FIPS tests...
+rngtest: entropy source drained
+rngtest: bits received from input: 19011552
+rngtest: FIPS 140-2 successes: 949
+rngtest: FIPS 140-2 failures: 1
+rngtest: FIPS 140-2(2001-10-10) Monobit: 0
+rngtest: FIPS 140-2(2001-10-10) Poker: 0
+rngtest: FIPS 140-2(2001-10-10) Runs: 0
+rngtest: FIPS 140-2(2001-10-10) Long run: 1
+rngtest: FIPS 140-2(2001-10-10) Continuous run: 0
+rngtest: input channel speed: (min=1.164; avg=4.311; max=6.209)Gibits/s
+rngtest: FIPS tests speed: (min=20.226; avg=117.844; max=123.854)Mibits/s
+rngtest: Program run time: 158105 microseconds
 
 **Practical implementation in Linux:**<br>
 in crontab @reboot:<br>
