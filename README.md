@@ -60,9 +60,23 @@ rngtest: FIPS tests speed: (min=20.226; avg=117.844; max=123.854)Mibits/s<br>
 rngtest: Program run time: 158105 microseconds<br>
 <br>
 **NIST SP800-22:**<br>
-
-
-
+SUMMARY<br>
+-------<br>
+monobit_test                             0.5648460187983009 PASS<br>
+frequency_within_block_test              0.13757301945679695 PASS<br>
+runs_test                                0.783797336913128  PASS<br>
+longest_run_ones_in_a_block_test         0.8381538149869271 PASS<br>
+binary_matrix_rank_test                  0.6193565682398411 PASS<br>
+non_overlapping_template_matching_test   1.0053096330682256 PASS<br>
+overlapping_template_matching_test       0.02574920384665839 PASS<br>
+maurers_universal_test                   0.6767816307099659 PASS<br>
+linear_complexity_test                   0.9294389193511788 PASS<br>
+serial_test                              0.0410078100805506 PASS<br>
+approximate_entropy_test                 0.2028910018441725 PASS<br>
+cumulative_sums_test                     0.6181876675828197 PASS<br>
+random_excursion_test                    0.020468785095130067 PASS<br>
+random_excursion_variant_test            0.03714850560062697 PASS<br>
+<br>
 **Practical implementation in Linux:**<br>
 in crontab @reboot:<br>
 `stty -F /dev/ttyACM0 -brkint -icrnl -imaxbel -opost -isig -icanon min 1 time 0`<br>
