@@ -28,17 +28,17 @@ The following tests have been done at room temperature (19..22 degrees Celcius) 
  minimum entropy: 0.99980954 bits per bit<br>
 
 **Ent:**<br>
-Entropy = 1.000000 bits per bit.
+Entropy = 1.000000 bits per bit.<br>
 <br>
-Optimum compression would reduce the size
-of this 19011552 bit file by 0 percent.
+Optimum compression would reduce the size<br>
+of this 19011552 bit file by 0 percent.<br>
 <br>
-Chi square distribution for 19011552 samples is 0.33, and randomly
-would exceed this value 56.48 percent of the times.
+Chi square distribution for 19011552 samples is 0.33, and randomly<br>
+would exceed this value 56.48 percent of the times.<br>
 <br>
-Arithmetic mean value of data bits is 0.4999 (0.5 = random).
-Monte Carlo value for Pi is 3.141625050 (error 0.00 percent).
-Serial correlation coefficient is -0.000063 (totally uncorrelated = 0.0).
+Arithmetic mean value of data bits is 0.4999 (0.5 = random).<br>
+Monte Carlo value for Pi is 3.141625050 (error 0.00 percent).<br>
+Serial correlation coefficient is -0.000063 (totally uncorrelated = 0.0).<br>
 <br>
 **Rngtest:**<br>
 rngtest 6.16<br>
