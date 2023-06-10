@@ -64,7 +64,6 @@ rngtest: Program run time: 158105 microseconds
 ```
 **NIST SP800-22:**<br>
 ```
--------
 monobit_test                             0.5648460187983009 PASS
 frequency_within_block_test              0.13757301945679695 PASS
 runs_test                                0.783797336913128  PASS
