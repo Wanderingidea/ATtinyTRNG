@@ -91,6 +91,7 @@ in crontab @reboot:<br>
 
 ### Sources:<br>
 https://en.wikipedia.org/wiki/Hardware_random_number_generator<br>
+https://github.com/Wanderingidea/ESPTRNG<br>
 https://www.chronox.de/jent.html<br>
 https://www.osti.gov/biblio/1825588<br>
 https://blogs.oracle.com/linux/post/rngd1<br>
