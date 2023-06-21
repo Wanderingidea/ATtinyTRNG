@@ -26,19 +26,54 @@ The following tests have been done at room temperature (19..22 degrees Celcius) 
 
 **Me:**<br>
 ```
-
+minimum entropy: 0.99831193 bits per bit
 ```
 **Ent:**<br>
 ```            
+Entropy = 0.999999 bits per bit.
 
+Optimum compression would reduce the size
+of this 1115512 bit file by 0 percent.
+
+Chi square distribution for 1115512 samples is 1.53, and randomly
+would exceed this value 21.63 percent of the times.
+
+Arithmetic mean value of data bits is 0.5006 (0.5 = random).
+Monte Carlo value for Pi is 3.126640561 (error 0.48 percent).
+Serial correlation coefficient is 0.000210 (totally uncorrelated = 0.0).
 ```
 **Rngtest:**<br>
 ```
-
+rngtest: starting FIPS tests...
+rngtest: entropy source drained
+rngtest: bits received from input: 1115512
+rngtest: FIPS 140-2 successes: 55
+rngtest: FIPS 140-2 failures: 0
+rngtest: FIPS 140-2(2001-10-10) Monobit: 0
+rngtest: FIPS 140-2(2001-10-10) Poker: 0
+rngtest: FIPS 140-2(2001-10-10) Runs: 0
+rngtest: FIPS 140-2(2001-10-10) Long run: 0
+rngtest: FIPS 140-2(2001-10-10) Continuous run: 0
+rngtest: input channel speed: (min=560.985; avg=4162.864; max=6357.829)Mibits/s
+rngtest: FIPS tests speed: (min=98.317; avg=120.607; max=123.854)Mibits/s
+rngtest: Program run time: 9074 microseconds
 ```
 **NIST SP800-22:**<br>
 ```
-
+monobit_test                             0.21626014477392805 PASS
+frequency_within_block_test              0.8176297812587121 PASS
+runs_test                                0.8257884662928558 PASS
+longest_run_ones_in_a_block_test         0.43400934433920196 PASS
+binary_matrix_rank_test                  0.346358926890636  PASS
+non_overlapping_template_matching_test   0.9999931618903717 PASS
+overlapping_template_matching_test       0.8610459718734899 PASS
+maurers_universal_test                   0.1615110387451597 PASS
+linear_complexity_test                   0.6027258025067725 PASS
+serial_test                              0.7425556145986536 PASS
+approximate_entropy_test                 0.7415899367081656 PASS
+cumulative_sums_test                     0.17211622419036687 PASS
+random_excursion_test                    0.012011204650569724 PASS
+random_excursion_variant_test            0.07435412705796825 PASS
 ```
 **Practical implementation in Linux:**<br>
 in crontab @reboot:<br>
