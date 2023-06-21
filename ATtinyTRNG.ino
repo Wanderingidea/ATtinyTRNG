@@ -69,7 +69,8 @@ static inline uint32_t ADCnoise32X(void)
 	ADCctr++;
 	ADCctr %= 5;
 	for (uint8_t n = 0; n < 32; n++) {
-		ar = analogRead(ADCctr);
+		for (uint8_t n = 0; n < 4; n++) // settling time needed
+			ar = analogRead(ADCctr);
 		if (ar == oar) {
 			sc++;
 			if (sc > 20) {
@@ -96,7 +97,7 @@ static inline uint8_t jitter8X(void)
 	uint8_t t0, dt;
 	for (uint8_t n = 0; n < 8; n++) {
 		t0 = TCNT0;
-		for (uint32_t n = 0; n < 25; n++) {
+		for (uint32_t n = 0; n < 10; n++) {
 			//Middle Square Weyl Sequence prng
 			//http://export.arxiv.org/pdf/1704.00358
 			x *= x;
