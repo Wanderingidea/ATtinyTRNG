@@ -12,7 +12,7 @@ This True Random Number Generator produces high quality non-deterministic random
 Random bytes made from the 4 available ADCs on a ATtiny85 MCU are used to seed a Middle Square Weyl Sequence prng which in turn is used to generate CPU jitter.<br>
 The output of CPU jitter is then combined with the output of the Middle Square Weyl Sequence prng.
 Both true random sources are checked for failure: if one of them fails the MCU is put to sleep. Every 5 seconds a activity led blinks.<br>
-A speed of appr. 50 B/s is achieved.
+A speed of appr. 54 B/s is achieved.
 
 ### Compile:<br>
 **Compile and upload ATtinyTRNG.ino to the ATtiny85 board using Arduino CLI:**<br>
