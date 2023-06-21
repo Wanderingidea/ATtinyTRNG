@@ -93,10 +93,10 @@ static inline uint8_t jitter8X(void)
 	static uint64_t ctr, s = ADCnoise32X() | 1, x, w;
 	static uint8_t rs, sc, stuckctr;
 	uint8_t r = 0;
-	uint32_t t0, dt;
+	uint8_t t0, dt;
 	for (uint8_t n = 0; n < 8; n++) {
-		t0 = micros();
-		for (uint32_t n = 0; n < 10; n++) {
+		t0 = TCNT0;
+		for (uint32_t n = 0; n < 25; n++) {
 			//Middle Square Weyl Sequence prng
 			//http://export.arxiv.org/pdf/1704.00358
 			x *= x;
@@ -106,7 +106,7 @@ static inline uint8_t jitter8X(void)
 			if (ctr++ == 0)
 				s = ADCnoise32X() | 1;
 		}
-		dt = micros() - t0;
+		dt = TCNT0 - t0;
 		if (dt == 0) {
 			sc++;
 			if (sc > 3) {
