@@ -20,7 +20,7 @@ A speed of appr. 54 B/s is achieved.
 `arduino-cli upload -p /dev/ttyACM0 --fqbn digistump:avr:digispark-tiny ATtinyTRNG.ino`<br>
 
 ### Tests:<br>
-The following tests have been done at room temperature (19..22 degrees Celcius) on a file of 136KB that has been created by<br>
+The following tests have been done at room temperature (19..22 degrees Celcius) on a file of 3.9 MB that has been created by<br>
 `stty -F /dev/ttyACM0 -brkint -icrnl -imaxbel -opost -isig -icanon min 1 time 0`<br> 
 `cat /dev/ttyACM0 > test.bin`<br>
 
