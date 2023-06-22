@@ -20,7 +20,7 @@ A speed of appr. 54 B/s is achieved.
 `arduino-cli upload -p /dev/ttyACM0 --fqbn digistump:avr:digispark-tiny ATtinyTRNG.ino`<br>
 
 ### Tests:<br>
-The following tests have been done at room temperature (19..22 degrees Celcius) on a file of 3.9 MB that has been created by<br>
+The following tests have been done at room temperature (19..22 degrees Celcius) on a file of 3.8 MB that has been created by<br>
 `stty -F /dev/ttyACM0 -brkint -icrnl -imaxbel -opost -isig -icanon min 1 time 0`<br> 
 `cat /dev/ttyACM0 > test.bin`<br>
 
@@ -64,7 +64,20 @@ rngtest: Program run time: 306102 microseconds
 ```
 **NIST SP800-22:**<br>
 ```
-
+monobit_test                             0.9166254994164268 PASS
+frequency_within_block_test              0.8461684944384364 PASS
+runs_test                                0.03547416549428373 PASS
+longest_run_ones_in_a_block_test         0.31127433030206514 PASS
+binary_matrix_rank_test                  0.06321485344501349 PASS
+non_overlapping_template_matching_test   0.6428493106464506 PASS
+overlapping_template_matching_test       0.2656688840163717 PASS
+maurers_universal_test                   0.3606312953992249 PASS
+linear_complexity_test                   0.17698190927945806 PASS
+serial_test                              0.05662185468837253 PASS
+approximate_entropy_test                 0.05641917890522011 PASS
+cumulative_sums_test                     0.5639481437661278 PASS
+random_excursion_test                    0.00021555650358339278 FAIL
+random_excursion_variant_test            0.00012792115206947528 FAIL
 ```
 **Practical implementation in Linux:**<br>
 in crontab @reboot:<br>
