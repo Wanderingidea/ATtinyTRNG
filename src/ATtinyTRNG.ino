@@ -5,7 +5,7 @@
 
 /*
  * ATtinyTRNG - True Random Number Generator
- * Cor van Wandelen 6-2023
+ * Cor van Wandelen 6-2023.1
  *
  * License:
  * This program is free software: you can redistribute it and/or modify
@@ -142,7 +142,7 @@ void loop()
 		jitter8X();
 	}
 
-	SerialUSB.write(jitter8X());
+	SerialUSB.write(jitter8X() ^ ADCnoise32X());
 
 	SerialUSB.task();
 }
