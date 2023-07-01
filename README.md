@@ -19,9 +19,6 @@ A speed of appr. 54 B/s is achieved.
 `arduino-cli compile -e --fqbn digistump:avr:digispark-tiny ATtinyTRNG.ino`<br>
 `arduino-cli upload -p /dev/ttyACM0 --fqbn digistump:avr:digispark-tiny ATtinyTRNG.ino`<br>
 
-### Uploading the bin file:<br>
-esptool.py --port /dev/ttyUSB0 --baud 115200 write_flash --flash_mode dio 0x00000 ESPTRNG.bin
-
 ### Tests:<br>
 The following tests have been done at room temperature (19..22 degrees Celcius) on a file of 3.8 MB that has been created by<br>
 `stty -F /dev/ttyACM0 -brkint -icrnl -imaxbel -opost -isig -icanon min 1 time 0`<br> 
