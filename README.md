@@ -20,27 +20,27 @@ A speed of appr. 54 B/s is achieved.
 `arduino-cli upload -p /dev/ttyACM0 --fqbn digistump:avr:digispark-tiny ATtinyTRNG.ino`<br>
 
 ### Tests:<br>
-The following tests have been done at room temperature (19..22 degrees Celcius) on a file of 3.8 MB that has been created by<br>
+The following tests have been done at room temperature (19..22 degrees Celcius) on a file of 230 KB (working on a bigger file) that has been created by<br>
 `stty -F /dev/ttyACM0 -brkint -icrnl -imaxbel -opost -isig -icanon min 1 time 0`<br> 
 `cat /dev/ttyACM0 > test.bin`<br>
 
 **Me:**<br>
 ```
-minimum entropy: 0.99997329 bits per bit
+minimum entropy: 0.99996014 bits per bit
 ```
 **Ent:**<br>
 ```            
 Entropy = 1.000000 bits per bit.
 
 Optimum compression would reduce the size
-of this 31979504 bit file by 0 percent.
+of this 1882248 bit file by 0 percent.
 
-Chi square distribution for 31979504 samples is 0.01, and randomly
-would exceed this value 91.66 percent of the times.
+Chi square distribution for 1882248 samples is 0.00, and randomly
+would exceed this value 96.98 percent of the times.
 
 Arithmetic mean value of data bits is 0.5000 (0.5 = random).
-Monte Carlo value for Pi is 3.140746789 (error 0.03 percent).
-Serial correlation coefficient is -0.000372 (totally uncorrelated = 0.0).
+Monte Carlo value for Pi is 3.133450641 (error 0.26 percent).
+Serial correlation coefficient is -0.001046 (totally uncorrelated = 0.0).
 ```
 **Rngtest:**<br>
 ```
@@ -50,34 +50,34 @@ This is free software; see the source for copying conditions.  There is NO warra
 
 rngtest: starting FIPS tests...
 rngtest: entropy source drained
-rngtest: bits received from input: 31979504
-rngtest: FIPS 140-2 successes: 1595
-rngtest: FIPS 140-2 failures: 3
-rngtest: FIPS 140-2(2001-10-10) Monobit: 1
+rngtest: bits received from input: 1882248
+rngtest: FIPS 140-2 successes: 94
+rngtest: FIPS 140-2 failures: 0
+rngtest: FIPS 140-2(2001-10-10) Monobit: 0
 rngtest: FIPS 140-2(2001-10-10) Poker: 0
 rngtest: FIPS 140-2(2001-10-10) Runs: 0
-rngtest: FIPS 140-2(2001-10-10) Long run: 2
+rngtest: FIPS 140-2(2001-10-10) Long run: 0
 rngtest: FIPS 140-2(2001-10-10) Continuous run: 0
-rngtest: input channel speed: (min=9.104; avg=1726.293; max=6357.829)Mibits/s
-rngtest: FIPS tests speed: (min=13.732; avg=105.905; max=123.854)Mibits/s
-rngtest: Program run time: 306102 microseconds
+rngtest: input channel speed: (min=307.637; avg=3018.363; max=6357.829)Mibits/s
+rngtest: FIPS tests speed: (min=75.688; avg=110.707; max=123.055)Mibits/s
+rngtest: Program run time: 17029 microseconds
 ```
 **NIST SP800-22:**<br>
 ```
-monobit_test                             0.9166254994164268 PASS
-frequency_within_block_test              0.8461684944384364 PASS
-runs_test                                0.03547416549428373 PASS
-longest_run_ones_in_a_block_test         0.31127433030206514 PASS
-binary_matrix_rank_test                  0.06321485344501349 PASS
-non_overlapping_template_matching_test   0.6428493106464506 PASS
-overlapping_template_matching_test       0.2656688840163717 PASS
-maurers_universal_test                   0.3606312953992249 PASS
-linear_complexity_test                   0.17698190927945806 PASS
-serial_test                              0.05662185468837253 PASS
-approximate_entropy_test                 0.05641917890522011 PASS
-cumulative_sums_test                     0.5639481437661278 PASS
-random_excursion_test                    0.00021555650358339278 FAIL
-random_excursion_variant_test            0.00012792115206947528 FAIL
+monobit_test                             0.9697656239976538 PASS
+frequency_within_block_test              0.2572847228076706 PASS
+runs_test                                0.1510271048334644 PASS
+longest_run_ones_in_a_block_test         0.24584460022706472 PASS
+binary_matrix_rank_test                  0.9678117669139024 PASS
+non_overlapping_template_matching_test   0.99999992511172   PASS
+overlapping_template_matching_test       0.30359446280589314 PASS
+maurers_universal_test                   0.5277574089121241 PASS
+linear_complexity_test                   0.20980394124421448 PASS
+serial_test                              0.4809632431896926 PASS
+approximate_entropy_test                 0.4816950544382495 PASS
+cumulative_sums_test                     0.6358695385173663 PASS
+random_excursion_test                    0.09662906607013198 PASS
+random_excursion_variant_test            0.26671457119968967 PASS
 ```
 **Practical implementation in Linux:**<br>
 in crontab @reboot:<br>
