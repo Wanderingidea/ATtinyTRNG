@@ -1,6 +1,6 @@
 # ATtinyTRNG
 ATtinyTRNG - True Random Number Generator<br>
-Cor van Wandelen 6-2023<br>
+Cor van Wandelen 6-2023.2<br>
 ![board](https://user-images.githubusercontent.com/42114791/236681679-c37b7d7e-ece2-4589-a5ea-2ed1f0db1bc8.jpg)
 
 A small, cheap generic True Random Number Generator has been made by combining two random sources on a ATtiny85 board.
