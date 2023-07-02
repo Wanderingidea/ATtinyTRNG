@@ -10,7 +10,7 @@ This True Random Number Generator produces high quality non-deterministic random
 
 ### Method:<br>
 Random bytes made from the 4 available ADCs on a ATtiny85 MCU are used to seed a Middle Square Weyl Sequence prng which in turn is used to generate CPU jitter.<br>
-The output of CPU jitter is then combined with the output of the Middle Square Weyl Sequence prng.
+The output of CPU jitter is then combined with the output of the Middle Square Weyl Sequence prng. To squeeze as much entropy out of the MCU as possible, jitter of the main loop is also used.<br>
 Both true random sources are checked for failure: if one of them fails the MCU is put to sleep. Every 5 seconds a activity led blinks.<br>
 A speed of appr. 54 B/s is achieved.
 
