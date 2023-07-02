@@ -5,7 +5,7 @@
 
 /*
  * ATtinyTRNG - True Random Number Generator
- * Cor van Wandelen 6-2023.1
+ * Cor van Wandelen 6-2023.2
  *
  * License:
  * This program is free software: you can redistribute it and/or modify
@@ -136,6 +136,19 @@ static void blink(void)
 
 void loop()
 {
+	static uint8_t t0 = TCNT0, dt, c, r, rs;
+
+	dt = TCNT0 - t0;
+	c++;
+	if (c == 8) {
+		rs ^= r;
+		SerialUSB.write(rs);
+		c = 0;
+		r = 0;
+	}
+	r |= (dt & 0b00000001) << c;
+	t0 = TCNT0;
+
 	if (goblink) {
 		blink();
 		goblink = false;
