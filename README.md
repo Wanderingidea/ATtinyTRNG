@@ -64,7 +64,20 @@ rngtest: Program run time: 191298 microseconds
 ```
 **NIST SP800-22:**<br>
 ```
-
+monobit_test                             0.29631082567160816 PASS
+frequency_within_block_test              0.2670881774723328 PASS
+runs_test                                0.0009755312129244377 FAIL
+longest_run_ones_in_a_block_test         0.31479034613636525 PASS
+binary_matrix_rank_test                  0.7725289791486538 PASS
+non_overlapping_template_matching_test   1.039453644187749  PASS
+overlapping_template_matching_test       0.33962534450833626 PASS
+maurers_universal_test                   0.9059121900535229 PASS
+linear_complexity_test                   0.22886410125438497 PASS
+serial_test                              0.0283208929213678 PASS
+approximate_entropy_test                 0.02834573920951043 PASS
+cumulative_sums_test                     0.35500899604305225 PASS
+random_excursion_test                    0.10414609594429489 PASS
+random_excursion_variant_test            0.09625989832347308 PASS
 ```
 **Practical implementation in Linux:**<br>
 in crontab @reboot:<br>
