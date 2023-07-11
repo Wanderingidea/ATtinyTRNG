@@ -80,7 +80,7 @@ random_excursion_test                    0.10414609594429489 PASS
 random_excursion_variant_test            0.09625989832347308 PASS
 ```
 **Practical implementation in Linux:**<br>
-in crontab @reboot:<br>
+add to ~/.xinitrc:<br>
 `stty -F /dev/ttyACM0 -brkint -icrnl -imaxbel -opost -isig -icanon min 1 time 0`<br>
 
 /etc/modules-load.d/modules.conf:<br> 
